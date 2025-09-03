@@ -1,10 +1,6 @@
 package tsunami.gui.clickui;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.*;
-import net.minecraft.util.Identifier;
 import tsunami.TsunamiClient;
 import tsunami.core.manager.client.ModuleManager;
 import tsunami.features.modules.Module;
@@ -21,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Category extends AbstractCategory {
-
 
     private boolean scrollHover;
     private final List<AbstractButton> buttons;
@@ -68,10 +63,10 @@ public class Category extends AbstractCategory {
         catHeight = AnimationUtility.fast(catHeight, height1, 30f);
 
         if (isOpen()) {
-            Render2DEngine.drawHudBase(context.getMatrices(), getX() + 3, getY() + height - 6, width - 6, catHeight, HudEditor.hudRound.getValue());
+            Render2DEngine.drawHudBase(context.getMatrices(), getX() + 2, getY() - 5, width - 4, height + catHeight + 1, HudEditor.hudRound.getValue());
 
             if (!(ModuleManager.clickGui.scrollMode.getValue() == ClickGui.scrollModeEn.Old || getButtonsHeight() < ModuleManager.clickGui.catHeight.getValue())) {
-                Render2DEngine.addWindow(context.getMatrices(), getX() + 3, getY() + height - 6, getX() + 3 + width - 6, (getY() + height - 6) + (float) ((ModuleManager.clickGui.catHeight.getValue())), 1f);
+                Render2DEngine.addWindow(context.getMatrices(), getX() + 2, getY() + height - 6, getX() + 2 + width - 4, (getY() + height - 6) + (float) ((ModuleManager.clickGui.catHeight.getValue())), 1f);
                 popStack = true;
             }
 
@@ -91,12 +86,12 @@ public class Category extends AbstractCategory {
                 button.setHeight(ModuleManager.clickGui.moduleHeight.getValue());
                 button.render(context, mouseX, mouseY, delta);
             }
+        } else {
+            Render2DEngine.drawHudBase(context.getMatrices(), getX() + 2, getY() - 5, width - 4, height, HudEditor.hudRound.getValue());
         }
 
         if (popStack)
             Render2DEngine.popWindow();
-
-        Render2DEngine.drawHudBase(context.getMatrices(), getX() + 2, getY() - 5, width - 4, height, HudEditor.hudRound.getValue());
 
         Render2DEngine.drawBlurredShadow(context.getMatrices(),
                 ((int) getX() + (width - 4) / 2) - FontRenderers.categories.getStringWidth(getName()) / 2f, (int) getY() + (int) height / 2f - 10, FontRenderers.categories.getStringWidth(getName()) + 6, 13, 20, Render2DEngine.injectAlpha(Color.black, 170));

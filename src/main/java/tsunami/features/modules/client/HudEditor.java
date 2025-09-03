@@ -16,20 +16,20 @@ public final class HudEditor extends Module {
     public static final Setting<Integer> colorSpeed = new Setting<>("ColorSpeed", 18, 2, 54);
     public static final Setting<Boolean> glow = new Setting<>("Light", true);
 
-    public static final Setting<ColorSetting> hcolor1 = new Setting<>("Color", new ColorSetting(0xFF1B5D5D)); // Dark teal with full alpha
-    public static final Setting<ColorSetting> acolor = new Setting<>("Color2", new ColorSetting(0xFF0D2247)); // Dark blue with full alpha
-    public static final Setting<ColorSetting> plateColor = new Setting<>("PlateColor", new ColorSetting(0xFF227474)); // Bright teal with full alpha
-    public static final Setting<ColorSetting> textColor = new Setting<>("TextColor", new ColorSetting(0xFFFFFFFF)); // White with full alpha
-    public static final Setting<ColorSetting> textColor2 = new Setting<>("TextColor2", new ColorSetting(0xFFFFFFFF)); // White with full alpha
-    public static final Setting<ColorSetting> blurColor = new Setting<>("BlurColor", new ColorSetting(0xFF000E25)); // Dark blue with full alpha
+    public static final Setting<ColorSetting> hcolor1 = new Setting<>("Color", new ColorSetting(0xFF144646));
+    public static final Setting<ColorSetting> acolor = new Setting<>("Color2", new ColorSetting(0xFF1B5D5D));
+    public static final Setting<ColorSetting> plateColor = new Setting<>("PlateColor", new ColorSetting(0xFF227474));
+    public static final Setting<ColorSetting> textColor = new Setting<>("TextColor", new ColorSetting(0xFFFFFFFF));
+    public static final Setting<ColorSetting> textColor2 = new Setting<>("TextColor2", new ColorSetting(0xFFBDBDBD));
+    public static final Setting<ColorSetting> blurColor = new Setting<>("BlurColor", new ColorSetting(0xE6000000));
 
     public static final Setting<Float> hudRound = new Setting<>("HudRound", 4f, 1f, 7f);
-    public static final Setting<Float> alpha = new Setting<>("Alpha", 0.9f, 0f, 1f);
-    public static final Setting<Float> blend = new Setting<>("Blend", 10f, 1f, 15f);
-    public static final Setting<Float> outline = new Setting<>("Outline", 0.5f, 0f, 2.5f);
-    public static final Setting<Float> glow1 = new Setting<>("Glow", 0.5f, 0f, 1f);
-    public static final Setting<Float> blurOpacity = new Setting<>("BlurOpacity", 0.55f, 0f, 1f);
-    public static final Setting<Float> blurStrength = new Setting<>("BlurStrength", 20f, 5f, 50f);
+    public static final Setting<Float> alpha = new Setting<>("Alpha", 0.7f, 0f, 1f);
+    public static final Setting<Float> blend = new Setting<>("Blend", 8f, 1f, 15f);
+    public static final Setting<Float> outline = new Setting<>("Outline", 0.3f, 0f, 2.5f);
+    public static final Setting<Float> glow1 = new Setting<>("Glow", 0.15f, 0f, 1f);
+    public static final Setting<Float> blurOpacity = new Setting<>("BlurOpacity", 0.95f, 0f, 1f);
+    public static final Setting<Float> blurStrength = new Setting<>("BlurStrength", 15f, 5f, 50f);
 
     public HudEditor() {
         super("HudEditor", Module.Category.CLIENT);
