@@ -184,30 +184,30 @@ public class ModuleButton extends AbstractButton {
         category_animation = fast(category_animation, offsetY, 20);
 
         if (animation < 0.05)
-            Render2DEngine.drawRect(context.getMatrices(), x + 4f, y + 1f, width - 8, height - 2, 4f, 0.15f, 
+            Render2DEngine.drawRect(context.getMatrices(), x + 4f, y + 1f, width - 8, height - 2, HudEditor.hudRound.getValue(), 0.15f, 
                 HudEditor.plateColor.getValue().getColorObject().darker(), 
                 HudEditor.plateColor.getValue().getColorObject().darker(),
                 HudEditor.plateColor.getValue().getColorObject().darker(),
-                HudEditor.plateColor.getValue().getColorObject().darker()); // Added rounded corners with radius 4
+                HudEditor.plateColor.getValue().getColorObject().darker());
         else {
 
             switch (ModuleManager.clickGui.gradientMode.getValue()) {
                 case both -> {
-                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, 4f, animation * 2f,
+                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, HudEditor.hudRound.getValue(), animation * 2f,
                             Render2DEngine.applyOpacity(HudEditor.getColor(270), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(0), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(180), animation),
                             Render2DEngine.applyOpacity(HudEditor.getColor(90), animation));
                 }
                 case UpsideDown -> {
-                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, 4f, animation * 2f,
+                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, HudEditor.hudRound.getValue(), animation * 2f,
                             Render2DEngine.applyOpacity(HudEditor.getColor(270), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(0), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(270), animation),
                             Render2DEngine.applyOpacity(HudEditor.getColor(0), animation));
                 }
                 case LeftToRight -> {
-                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, 4f, animation * 2f,
+                    Render2DEngine.drawRect(context.getMatrices(), x + 4, y + 1f, width - 8, height - 2, HudEditor.hudRound.getValue(), animation * 2f,
                             Render2DEngine.applyOpacity(HudEditor.getColor(270), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(270), animation * 2f),
                             Render2DEngine.applyOpacity(HudEditor.getColor(0), animation),

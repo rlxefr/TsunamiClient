@@ -16,10 +16,9 @@ public final class HudEditor extends Module {
     public static final Setting<Integer> colorSpeed = new Setting<>("ColorSpeed", 18, 2, 54);
     public static final Setting<Boolean> glow = new Setting<>("Light", true);
 
-    // Fixed color settings - using proper ARGB values with full alpha
-    public static final Setting<ColorSetting> hcolor1 = new Setting<>("Color", new ColorSetting(0xFF00BCD4)); // Cyan with full alpha
+    public static final Setting<ColorSetting> hcolor1 = new Setting<>("Color", new ColorSetting(0xFF1B5D5D)); // Dark teal with full alpha
     public static final Setting<ColorSetting> acolor = new Setting<>("Color2", new ColorSetting(0xFF0D2247)); // Dark blue with full alpha
-    public static final Setting<ColorSetting> plateColor = new Setting<>("PlateColor", new ColorSetting(0xFF00FFFF)); // Full alpha cyan
+    public static final Setting<ColorSetting> plateColor = new Setting<>("PlateColor", new ColorSetting(0xFF227474)); // Bright teal with full alpha
     public static final Setting<ColorSetting> textColor = new Setting<>("TextColor", new ColorSetting(0xFFFFFFFF)); // White with full alpha
     public static final Setting<ColorSetting> textColor2 = new Setting<>("TextColor2", new ColorSetting(0xFFFFFFFF)); // White with full alpha
     public static final Setting<ColorSetting> blurColor = new Setting<>("BlurColor", new ColorSetting(0xFF000E25)); // Dark blue with full alpha

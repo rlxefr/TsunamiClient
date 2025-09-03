@@ -12,6 +12,7 @@ import tsunami.core.manager.client.ModuleManager;
 import tsunami.features.hud.HudElement;
 import tsunami.features.modules.Module;
 import tsunami.features.modules.client.ClickGui;
+import tsunami.features.modules.client.HudEditor;
 import tsunami.gui.font.FontRenderers;
 import tsunami.utility.render.Render2DEngine;
 import tsunami.utility.render.animation.AnimationUtility;
@@ -28,13 +29,12 @@ public class ClickGUI extends Screen {
     public static List<AbstractCategory> windows;
     public static boolean anyHovered;
 
-    // Color theme constants - Dark Blue and Cyan
-    public static final Color DARK_BLUE_PRIMARY = new Color(13, 34, 71);      // #0D2247 - Main background
-    public static final Color DARK_BLUE_SECONDARY = new Color(19, 53, 107);   // #13356B - Secondary elements
-    public static final Color CYAN_PRIMARY = new Color(0, 188, 212);          // #00BCD4 - Primary cyan
-    public static final Color CYAN_SECONDARY = new Color(0, 229, 255);        // #00E5FF - Bright cyan
-    public static final Color CYAN_DARK = new Color(0, 96, 100);              // #006064 - Dark cyan
-    public static final Color DARK_BLUE_LIGHT = new Color(25, 67, 135);       // #194387 - Light dark blue
+    public static final Color DARK_BLUE_PRIMARY = new Color(13, 34, 71);      
+    public static final Color DARK_BLUE_SECONDARY = new Color(19, 53, 107);   
+    public static final Color DARK_TEAL_PRIMARY = new Color(27, 93, 93);      
+    public static final Color DARK_TEAL_SECONDARY = new Color(34, 116, 116);  
+    public static final Color DARK_TEAL_DARKER = new Color(20, 70, 70);       
+    public static final Color DARK_BLUE_LIGHT = new Color(25, 67, 135);       
 
     private boolean firstOpen;
     private float scrollY, closeAnimation, prevYaw, prevPitch, closeDirectionX, closeDirectionY;
@@ -76,13 +76,13 @@ public class ClickGUI extends Screen {
         return switch (type.toLowerCase()) {
             case "background", "bg" -> DARK_BLUE_PRIMARY.getRGB();
             case "secondary", "sec" -> DARK_BLUE_SECONDARY.getRGB();
-            case "accent", "primary" -> CYAN_PRIMARY.getRGB();
-            case "highlight", "bright" -> CYAN_SECONDARY.getRGB();
-            case "dark_accent" -> CYAN_DARK.getRGB();
+            case "accent", "primary" -> DARK_TEAL_PRIMARY.getRGB();
+            case "highlight", "bright" -> DARK_TEAL_SECONDARY.getRGB();
+            case "dark_accent" -> DARK_TEAL_DARKER.getRGB();
             case "light_bg" -> DARK_BLUE_LIGHT.getRGB();
             case "text" -> Color.WHITE.getRGB();
             case "text_secondary" -> new Color(200, 200, 200).getRGB();
-            default -> CYAN_PRIMARY.getRGB();
+            default -> DARK_TEAL_PRIMARY.getRGB();
         };
     }
 
@@ -219,7 +219,7 @@ public class ClickGUI extends Screen {
         windows.forEach(w -> w.render(context, mouseX, mouseY, delta));
 
         if (!Objects.equals(currentDescription, "") && ModuleManager.clickGui.descriptions.getValue()) {
-            Render2DEngine.drawHudBase(context.getMatrices(), mouseX + 7, mouseY + 5, FontRenderers.sf_medium.getStringWidth(currentDescription) + 6, 11, 1f, false);
+            Render2DEngine.drawHudBase(context.getMatrices(), mouseX + 7, mouseY + 5, FontRenderers.sf_medium.getStringWidth(currentDescription) + 6, 11, HudEditor.hudRound.getValue());
             FontRenderers.sf_medium.drawString(context.getMatrices(), currentDescription, mouseX + 10, mouseY + 8, getThemeColor("text"));
             currentDescription = "";
         }

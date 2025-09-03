@@ -5,6 +5,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
+import tsunami.features.modules.client.HudEditor;
 import tsunami.gui.font.FontRenderers;
 import tsunami.utility.render.Render2DEngine;
 
@@ -42,15 +43,15 @@ public class DialogScreen extends Screen {
         float mainWidth = 240f;
         float mainHeight = 140;
 
-        Render2DEngine.drawHudBase(context.getMatrices(), mainX, mainY, mainWidth, mainHeight, 20, false);
+        Render2DEngine.drawHudBase(context.getMatrices(), mainX, mainY, mainWidth, mainHeight, HudEditor.hudRound.getValue());
 
         FontRenderers.sf_medium.drawCenteredString(context.getMatrices(), header, mainX + (mainWidth / 2f), mainY + 5, -1);
         FontRenderers.sf_medium.drawCenteredString(context.getMatrices(), description, mainX + (mainWidth / 2f), mainY + 12, new Color(0xABFFFFFF, true).getRGB());
 
-        Render2DEngine.drawHudBase(context.getMatrices(), mainX + 5, mainY + 95, 110, 40, 15, false);
+        Render2DEngine.drawHudBase(context.getMatrices(), mainX + 5, mainY + 95, 110, 40, HudEditor.hudRound.getValue());
         FontRenderers.sf_medium.drawCenteredString(context.getMatrices(), yesText, mainX + 60, mainY + 112, yesHovered(mouseX, mouseY) ? -1 : new Color(0xABFFFFFF, true).getRGB());
 
-        Render2DEngine.drawHudBase(context.getMatrices(), mainX + 125, mainY + 95, 110, 40, 15, false);
+        Render2DEngine.drawHudBase(context.getMatrices(), mainX + 125, mainY + 95, 110, 40, HudEditor.hudRound.getValue());
         FontRenderers.sf_medium.drawCenteredString(context.getMatrices(), noText, mainX + 180f, mainY + 112, noHovered(mouseX, mouseY) ? -1 : new Color(0xABFFFFFF, true).getRGB());
 
         context.drawTexture(pic, (int) (mainX + (mainWidth / 2f) - 35), (int) mainY + 25, 0, 0, 70, 65, 70, 65);

@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import tsunami.api.IAddon;
 import tsunami.core.Managers;
 import tsunami.core.manager.client.ModuleManager;
+import tsunami.features.modules.client.HudEditor;
 import tsunami.gui.font.FontRenderers;
 import tsunami.utility.render.Render2DEngine;
 import tsunami.utility.render.TextureStorage;
@@ -77,7 +78,7 @@ public class MainMenuScreen extends Screen {
         // Render2DEngine.drawMainMenuShader(context.getMatrices(), 0, 0, halfOfWidth * 2f, halfOfHeight * 2);
         renderBackground(context, mouseX, mouseY, delta);
 
-        Render2DEngine.drawHudBase(context.getMatrices(), mainX, mainY, mainWidth, mainHeight, 20);
+        Render2DEngine.drawHudBase(context.getMatrices(), mainX, mainY, mainWidth, mainHeight, HudEditor.hudRound.getValue());
 
         buttons.forEach(b -> b.onRender(context, mouseX, mouseY));
 
@@ -92,7 +93,7 @@ public class MainMenuScreen extends Screen {
 
 
 
-        Render2DEngine.drawHudBase(context.getMatrices(), mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30, 5, Render2DEngine.isHovered(mouseX, mouseY, mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30) ? 0.7f : 1f);
+        Render2DEngine.drawHudBase(context.getMatrices(), mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30, HudEditor.hudRound.getValue(), Render2DEngine.isHovered(mouseX, mouseY, mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30) ? 0.7f : 1f);
         RenderSystem.setShaderColor(1f, 1f, 1f, Render2DEngine.isHovered(mouseX, mouseY, mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30) ? 0.7f : 1f);
         context.drawTexture(TextureStorage.thTeam, mc.getWindow().getScaledWidth() - 40, mc.getWindow().getScaledHeight() - 40, 30, 30, 0, 0, 30, 30, 30, 30);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);

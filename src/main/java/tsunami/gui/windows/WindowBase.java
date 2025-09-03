@@ -52,19 +52,22 @@ public class WindowBase {
 
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        Render2DEngine.drawHudBase(context.getMatrices(), x, y, width + 10, height, 1, false);
-        Render2DEngine.drawRect(context.getMatrices(), x + 0.5f, y, width + 9, 16, new Color(0x5F000000, true));
+        Render2DEngine.drawHudBase(context.getMatrices(), x, y, width + 10, height, HudEditor.hudRound.getValue());
+        Color headerBg = Render2DEngine.applyOpacity(new Color(0x5F000000, true), 0.8f);
+        Render2DEngine.drawRound(context.getMatrices(), x + 0.5f, y, width + 9, 16, HudEditor.hudRound.getValue(), headerBg);
         Render2DEngine.horizontalGradient(context.getMatrices(), x + 2, y + 16f, x + 2 + width / 2f - 2, y + 16.5f, Render2DEngine.injectAlpha(HudEditor.textColor.getValue().getColorObject(), 0), HudEditor.textColor.getValue().getColorObject());
         Render2DEngine.horizontalGradient(context.getMatrices(), x + 2 + width / 2f - 2, y + 16f, x + 2 + width - 4, y + 16.5f, HudEditor.textColor.getValue().getColorObject(), Render2DEngine.injectAlpha(HudEditor.textColor.getValue().getColorObject(), 0));
         FontRenderers.sf_medium.drawString(context.getMatrices(), name, x + 4, y + 5.5f, -1);
         boolean hover1 = Render2DEngine.isHovered(mouseX, mouseY, x + width - 4, y + 3, 10, 10);
-        Render2DEngine.drawRectWithOutline(context.getMatrices(), x + width - 4, y + 3, 10, 10, hover1 ? new Color(0xC5777777, true) : new Color(0xC5575757, true), color2);
+        Color closeBtnColor = hover1 ? new Color(0xC5777777, true) : new Color(0xC5575757, true);
+        Render2DEngine.drawRound(context.getMatrices(), x + width - 4, y + 3, 10, 10, 3f, closeBtnColor);
 
         float ratio = (getHeight() - 35) / maxElementsHeight;
 
         boolean hover2 = Render2DEngine.isHovered(mouseX, mouseY, x + width, y + 19, 6, getHeight() - 34);
-        Render2DEngine.drawRectWithOutline(context.getMatrices(), x + width, y + 19, 6, getHeight() - 34, hover2 ? new Color(0x5F131313, true) : new Color(0x5F000000, true), color2);
-        Render2DEngine.drawRect(context.getMatrices(), x + width, Math.max(y + 19 - (scrollOffset * ratio), y + 19), 6, Math.min((getHeight() - 34) * ratio, getHeight() - 34), new Color(0xA1313131, true));
+        Color scrollBg = hover2 ? new Color(0x5F131313, true) : new Color(0x5F000000, true);
+        Render2DEngine.drawRound(context.getMatrices(), x + width, y + 19, 6, getHeight() - 34, 3f, scrollBg);
+        Render2DEngine.drawRound(context.getMatrices(), x + width, Math.max(y + 19 - (scrollOffset * ratio), y + 19), 6, Math.min((getHeight() - 34) * ratio, getHeight() - 34), 3f, new Color(0xA1313131, true));
 
         Render2DEngine.drawLine(x + width - 2, y + 5, x + width + 4, y + 11, Colors.WHITE);
         Render2DEngine.drawLine(x + width - 2, y + 11, x + width + 4, y + 5, Colors.WHITE);
