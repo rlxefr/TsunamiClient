@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "tsunamiclient",
+  "version": "1.1",
+  "icon": "icon.png",
+  "name": "TsunamiClient",
+  "description": "Tsunami Player Interface Enchancer",
+  "authors": [
+    {
+      "name": "Tsunamiz",
+      "contact": {
+        "discord": "tsunamiz"
+      }
+    },
+    {
+      "name": "tsunamiz",
+      "contact": {
+        "discord": "tsunamiz"
+      }
+    }
+  ],
+  "license": "GNU General Public License v3.0",
+  "accessWidener": "tsunami.accesswidener",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "tsunami.TsunamiClient"
+    ]
+  },
+  "contact": {
+    "sources": "https://discord.gg/h24F9j5Pwk",
+    "homepage": "https://tsunamiclient.rf.gd",
+    "issues": "https://discord.gg/h24F9j5Pwk"
+  },
+  "mixins": [
+    "tsunami.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21",
+    "java": ">=21"
+  },
+  "suggests": {
+    "sodium": "*",
+    "exordium": "*",
+    "starlight": "*",
+    "ias": "*",
+    "viafabricplus": "*"
+  }
+}
